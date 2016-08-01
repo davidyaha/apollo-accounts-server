@@ -15,9 +15,9 @@ Open your browser on http://localhost:3000/graphql and run these queries on Grap
  
 ### Create user
 ```
-mutation register($user: {username: "user", password: "password"}){
+mutation register($user: {username: "user", password: "password"}) {
   createAccount(user: $user) {
-		id
+    id
     username
   }
 }
