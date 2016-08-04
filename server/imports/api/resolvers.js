@@ -16,7 +16,7 @@ const resolvers = {
       return await UserAccount.login(username, email, password);
     }
   },
-  UserAccount: {
+  User: {
     id: (user)=>user._id,
     email: (user)=>(user.emails && user.emails[0] && user.emails[0].address),
     username: (user)=>user.username,

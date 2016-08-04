@@ -1,6 +1,7 @@
 import {buildSchemaFromTypeDefinitions} from 'graphql-tools';
 
-const Schema = `
+export const schemaShorthand = `
+export const schemaShorthand = `
   type Token {
     userId: ID!
     token: String!
@@ -13,26 +14,47 @@ const Schema = `
     password: String
   }
 
-  type UserAccount {
+  type User {
     id: ID!
     email: String
     username: String
   }
   
-  type RootQuery {
-    me: UserAccount
+  interface AccountsQuery {
+    me: User
   }
   
-  type RootMutation {
-    createAccount(user: UserPasswordInput): UserAccount
+  interface AccountsMutation {
+    createAccount(user: UserPasswordInput): User
     loginWithPassword(user: UserPasswordInput): Token
   }
-  
+`;
+
+export const rootObjectsExtension = `
+  extend type RootQuery implements AccountsQuery {
+    me: User
+  }
+
+  extend type RootMutation implements AccountsMutation {
+    createAccount(user: UserPasswordInput): User
+    loginWithPassword(user: UserPasswordInput): Token
+  }
+`;
+
+const schema = `
+  type RootQuery implements AccountsQuery {
+    me: User
+  }
+
+  type RootMutation implements AccountsMutation {
+    createAccount(user: UserPasswordInput): User
+    loginWithPassword(user: UserPasswordInput): Token
+  }
+
   schema {
     query: RootQuery
     mutation: RootMutation
   }
- 
 `;
 
-export default buildSchemaFromTypeDefinitions(Schema);
+export default buildSchemaFromTypeDefinitions([schema, schemaShorthand]);
