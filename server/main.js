@@ -8,3 +8,5 @@ export default {
   resolvers
 }
 
+export {schemaShorthand, rootObjectsExtension} from './imports/api/schema';
+
