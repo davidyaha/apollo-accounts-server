@@ -25,7 +25,9 @@ const resolvers = {
     username: (user)=>user.username,
   },
   Token: {
-    tokenExpiration: (token)=>token.tokenExpiration.getTime()
+    userId: (token) => token.userId,
+    token: (token) => token.token,
+    tokenExpiration: (token)=>token.tokenExpiration.getTime(),
   }
 };
 
