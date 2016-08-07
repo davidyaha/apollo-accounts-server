@@ -9,4 +9,4 @@ export default {
 }
 
 export {schemaShorthand, rootObjectsExtension} from './imports/api/schema';
-
+export {UserAccount} from './imports/models/user-account';
