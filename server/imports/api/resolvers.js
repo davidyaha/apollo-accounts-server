@@ -5,6 +5,9 @@ const resolvers = {
     async me(_, args, context) {
       return await UserAccount.get(context.userId);
     },
+    async user(_, args, context) {
+      return await UserAccount.get(args.id);
+    }
   },
   RootMutation: {
     async createAccount(_, args, context) {

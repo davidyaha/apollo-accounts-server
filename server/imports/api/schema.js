@@ -21,6 +21,7 @@ export const schemaShorthand = `
   
   interface AccountsQuery {
     me: User
+    user(id: ID!): User
   }
   
   interface AccountsMutation {
@@ -32,6 +33,7 @@ export const schemaShorthand = `
 export const rootObjectsExtension = `
   extend type RootQuery implements AccountsQuery {
     me: User
+    user(id: ID!): User
   }
 
   extend type RootMutation implements AccountsMutation {
@@ -43,6 +45,7 @@ export const rootObjectsExtension = `
 const schema = `
   type RootQuery implements AccountsQuery {
     me: User
+    user(id: ID!): User
   }
 
   type RootMutation implements AccountsMutation {
