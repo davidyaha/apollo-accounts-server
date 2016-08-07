@@ -58,7 +58,7 @@ export default class UserAccount {
   }
   
   static async get(id) {
-    await Accounts.users.findOne(id);
+    return await Accounts.users.findOne(id);
   }
 }
 
