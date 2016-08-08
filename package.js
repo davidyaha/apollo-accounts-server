@@ -11,7 +11,7 @@ Package.onUse(function (api) {
     'ecmascript',
     'check',
     'accounts-password',
-    'apollo',
+    'apollo@0.1.0-beta',
     'tmeasday:check-npm-versions@0.3.1'
   ]);
   
@@ -23,7 +23,7 @@ Package.onTest(function (api) {
     'ecmascript',
     'practicalmeteor:mocha',
     'practicalmeteor:chai',
-    'apollo-accounts-server'
+    'davidyaha:apollo-accounts-server'
   ]);
   
   api.mainModule('tests/server.js', 'server');
