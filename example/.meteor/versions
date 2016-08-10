@@ -1,7 +1,7 @@
 accounts-base@1.2.9
 accounts-password@1.1.13
 allow-deny@1.0.5
-apollo@0.0.3
+apollo@0.1.0-beta
 autoupdate@1.2.11
 babel-compiler@6.9.0
 babel-runtime@0.1.10
@@ -12,7 +12,7 @@ blaze-tools@1.0.9
 boilerplate-generator@1.0.9
 callback-hook@1.0.9
 check@1.2.3
-davidyaha:apollo-accounts-server@0.0.1
+davidyaha:apollo-accounts-server@0.0.2
 ddp@1.2.5
 ddp-client@1.2.9
 ddp-common@1.2.6
