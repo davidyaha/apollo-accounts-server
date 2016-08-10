@@ -1,6 +1,18 @@
 import {buildSchemaFromTypeDefinitions} from 'graphql-tools';
 
-export const schemaShorthand = `
+export const queries = `
+  me: User
+  user(id: ID!): User
+`;
+
+export const mutations = `
+  createAccount(user: UserPasswordInput): User
+  loginWithPassword(user: UserPasswordInput): Token
+  createGuestUser: Token
+  registerGuest(user: UserPasswordInput): User
+`;
+
+export const typeDefs = `
   type Token {
     userId: ID!
     token: String!
@@ -18,39 +30,25 @@ export const schemaShorthand = `
     email: String
     username: String
   }
-  
-  interface AccountsQuery {
-    me: User
-    user(id: ID!): User
-  }
-  
-  interface AccountsMutation {
-    createAccount(user: UserPasswordInput): User
-    loginWithPassword(user: UserPasswordInput): Token
-  }
 `;
 
 export const rootObjectsExtension = `
-  extend type RootQuery implements AccountsQuery {
-    me: User
-    user(id: ID!): User
+  extend type RootQuery {
+    ${queries}
   }
 
-  extend type RootMutation implements AccountsMutation {
-    createAccount(user: UserPasswordInput): User
-    loginWithPassword(user: UserPasswordInput): Token
+  extend type RootMutation {
+    ${mutations}
   }
 `;
 
 const schema = `
-  type RootQuery implements AccountsQuery {
-    me: User
-    user(id: ID!): User
+  type RootQuery {
+    ${queries}
   }
 
-  type RootMutation implements AccountsMutation {
-    createAccount(user: UserPasswordInput): User
-    loginWithPassword(user: UserPasswordInput): Token
+  type RootMutation {
+    ${mutations}
   }
 
   schema {
@@ -59,4 +57,4 @@ const schema = `
   }
 `;
 
-export default buildSchemaFromTypeDefinitions([schema, schemaShorthand]);
+export default buildSchemaFromTypeDefinitions([schema, typeDefs]);

@@ -17,7 +17,14 @@ const resolvers = {
     async loginWithPassword(_, args, context) {
       let {username, email, password} = args.user;
       return await UserAccount.login(username, email, password);
-    }
+    },
+    async createGuestUser() {
+      return await UserAccount.createGuest();
+    },
+    async registerGuest(_, {user, profile}, context) {
+      const {username, email, password} = user;
+      return await UserAccount.updateGuest(context.userId, username, email, password, profile);
+    },
   },
   User: {
     id: (user)=>user._id,
