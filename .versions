@@ -15,7 +15,7 @@ caching-html-compiler@1.0.6
 callback-hook@1.0.9
 check@1.2.3
 coffeescript@1.0.17
-davidyaha:apollo-accounts-server@0.0.1
+davidyaha:apollo-accounts-server@0.1.0
 ddp@1.2.5
 ddp-client@1.2.8
 ddp-common@1.2.6
@@ -33,7 +33,7 @@ htmljs@1.0.10
 http@1.1.5
 id-map@1.0.8
 jquery@1.11.9
-local-test:davidyaha:apollo-accounts-server@0.0.1
+local-test:davidyaha:apollo-accounts-server@0.1.0
 localstorage@1.0.11
 logging@1.0.14
 meteor@1.1.16
