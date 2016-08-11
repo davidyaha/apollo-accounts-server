@@ -7,6 +7,7 @@ export const queries = `
 
 export const mutations = `
   createAccount(user: UserPasswordInput): User
+  createAccountAndLogin(user: UserPasswordInput): Token
   loginWithPassword(user: UserPasswordInput): Token
   createGuestUser: Token
   registerGuest(user: UserPasswordInput): User

@@ -14,6 +14,11 @@ const resolvers = {
       let {username, email, password} = args.user;
       return await UserAccount.create(username, email, password, args.profile);
     },
+    async createAccountAndLogin(_, args, context) {
+      let {username, email, password} = args.user;
+      await UserAccount.create(username, email, password, args.profile);
+      return await UserAccount.login(username, email, password);
+    },
     async loginWithPassword(_, args, context) {
       let {username, email, password} = args.user;
       return await UserAccount.login(username, email, password);
