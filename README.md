@@ -34,6 +34,17 @@ mutation {
 }
 ```
 
+### Client oriented create and login
+```
+mutation {
+  createAccountAndLogin(user: {username: "user", password: "password"}) {
+    userId
+    token
+    tokenExpiration
+  }
+}
+```
+
 ### Create guest user
 ```
 mutation {
